@@ -2,8 +2,15 @@
 
 node {
     stage('checkout'){
-        scm {
-            svn('https://github.com/CharlesPikachu/Games/trunk/Game7')
-        }
+        
+        sh 'svn checkout https://github.com/CharlesPikachu/Games/trunk/Game7'
+        
+    }
+    stage('rename'){
+        
+        sh 'cd Game7'
+        sh 'mv Game7/Game7.py Game7/Dino_DevOps.py'
+        sh 'mv Game7 Dino_DevOps'
+    
     }
 }
